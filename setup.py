@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="applot", # Replace with your own username
+    name="applot",
     version="0.0.1",
     author="Austin Poor",
     author_email="austinpoor@gmail.com",
-    description="A small svg plotting library",
+    description="A small SVG plotting library written from scratch in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/a-poor/applot",

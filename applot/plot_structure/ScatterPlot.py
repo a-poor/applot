@@ -1,4 +1,0 @@
-
-class ScatterPlot:
-    pass
-

@@ -1,4 +1,0 @@
-
-class StackedHBar:
-    pass
-

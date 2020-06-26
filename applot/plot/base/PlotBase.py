@@ -1,5 +1,5 @@
 
-from .. import util, svg
+from ... import util, svg
 from .PlotTitle import PlotTitle
 from .PlotAxis import PlotAxis
 from .PlotInner import PlotInner
