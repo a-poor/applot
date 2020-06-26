@@ -11,6 +11,9 @@ class PlotObject:
     def __repr__(self):
         return "<PlotObject />"
 
-    def render(self):
+    def toSvg(self):
         raise NotImplementedError
+
+    def render(self):
+        return self.toSvg().render()
 

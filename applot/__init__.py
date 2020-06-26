@@ -1,3 +1,3 @@
 
 from . import svg
-from . import plot
+from . import plot_structure

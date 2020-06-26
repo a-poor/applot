@@ -1,9 +1,9 @@
 
 
 class Element:
-    name = None
-    attributes = {}
-    children = []
+    # name = None
+    _attributes = {}
+    _children = []
 
     # Default transformations
     _translate = (0,0)
@@ -16,31 +16,35 @@ class Element:
     rotate = (0,0,0)
     
     def __init__(self,name=None,**kwargs):
-        self.name = self.name if name is None else name
+        self.attributes = {
+            **self._attributes
+        }
+        self.children = [
+            *self._children
+        ]
+
+        self.name = name
         if 'attributes' in kwargs:
-            self.attributes = {
-                **self.attributes,
-                **kwargs['attributes']}
+            self.attributes.update(
+                kwargs['attributes']
+            )
         if 'a' in kwargs:
-            self.attributes = {
-                **self.attributes,
-                **kwargs['a']}
+            self.attributes.update(
+                kwargs['a']
+            )
         if 'children' in kwargs:
-            self.children = [
-                *self.children,
-                *kwargs['children']]
+            self.children.extend(
+                kwargs['children']
+            )
         if 'c' in kwargs:
-            self.children = [
-                *self.children,
-                *kwargs['c']]
+            self.children.extend(
+                kwargs['c']
+            )
         
     def __repr__(self):
         return f"<Element:{self.name} attrs:{len(self.attributes)} chldrn:{len(self.children)}/>"
         
     def __str__(self):
-        return self.render()
-    
-    def render(self):
         # Add transformations if necessary
         if "transform" not in self.attributes:
             transform = []
@@ -52,13 +56,21 @@ class Element:
                 transform.append(f"rotate{self.rotate}")
             if transform:
                 self.attributes['transform'] = " ".join(transform)
+                
         # Create attribute string
-        sattr = " ".join(f'{k}="{v}"' for k,v in self.attributes.items())
-        if sattr: sattr = " " + sattr
+        sattr = " ".join(
+            f'{k}="{v}"' for k,v in 
+            self.attributes.items()
+        )
+            
         # Render string of children
         schildren = "".join(str(c) for c in self.children)
+        
         # Format and return
-        return f"<{self.name}{sattr}>{schildren}</{self.name}>"
+        return f"<{self.name} {sattr}>{schildren}</{self.name}>"
+    
+    def render(self):
+        return self.__str__()
 
     def addChild(self,c,*args):
         self.children.append(c)
@@ -69,4 +81,3 @@ class Element:
         i = self.children.index(c)
         self.children.pop(i)
         return self
-
