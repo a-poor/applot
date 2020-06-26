@@ -27,5 +27,9 @@ class PlotBase(PlotObject):
             )
         return canv.render()
 
+    def save(self,filename,filemode="w"):
+        with open(filename,filemode) as f:
+            f.write(self.render())
+
 
 
