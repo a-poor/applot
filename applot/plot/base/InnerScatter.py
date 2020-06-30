@@ -1,9 +1,9 @@
 
-from . import base
-from .. import svg
+from .PlotInner import PlotInner
+from ... import svg
 
-class ScatterPlot(base.PlotInner):
-    plot_type = "ScatterPlot"
+class InnerScatter(PlotInner):
+    plot_type = "InnerScatter"
 
     # def __init__(self,**kwargs):
     #     super().__init__(**kwargs)
