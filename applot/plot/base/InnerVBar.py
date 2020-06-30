@@ -1,6 +1,6 @@
 
 from .PlotInner import PlotInner
 
-class VBarPlot(PlotInner):
+class InnerVBar(PlotInner):
     pass
 
