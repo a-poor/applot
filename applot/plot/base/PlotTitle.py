@@ -9,6 +9,11 @@ class PlotTitle(PlotObject):
     font_family = "Helvetica"
     font_weight = "bold"
     font_fill = "black"
+
+    _xmin = None
+    _ymin = None
+    _xmax = None
+    _ymax = None
     
     def __init__(self,title,**kwargs):
         self.title = title

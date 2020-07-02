@@ -6,25 +6,27 @@ from .PlotInner import PlotInner
 from .PlotObject import PlotObject
 
 class PlotBase(PlotObject):
-    def __init__(self,title=None,axis=None,inner=None,bg=None):
+    def __init__(self,title=None,axis=None,inner=None,grid=None,bg=None):
         self.title = title
         self.axis = axis
         self.inner = inner
+        self.grid = grid
         self.bg = bg
 
     def toSvg(self):
-        canv = svg.SVG()
-        is_valid = lambda o: (
+        canv = svg.SVG("0 0 400 600")
+        valid = lambda o: (
             isinstance(o,PlotObject) or 
-            isinstance(o,svg.Element)
-            )
-        if is_valid(self.bg):
+            isinstance(o,svg.Element))
+        if valid(self.bg):
             canv.children.append(self.bg)
-        if is_valid(self.inner):
+        if valid(self.grid):
+            canv.children.append(self.grid)
+        if valid(self.inner):
             canv.children.append(self.inner)
-        if is_valid(self.axis):
+        if valid(self.axis):
             canv.children.append(self.axis)
-        if is_valid(self.title):
+        if valid(self.title):
             canv.children.append(self.title)
         return canv
 

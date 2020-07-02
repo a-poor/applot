@@ -7,5 +7,8 @@ class Group(Element):
     def __init__(self,**kwargs):
         super().__init__(self.name,**kwargs)
 
+    def dissolve(self):
+        return self._schildren()
+
 
     

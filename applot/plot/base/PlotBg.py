@@ -3,6 +3,11 @@ from ... import util, svg
 from .PlotObject import PlotObject
 
 class PlotBg(PlotObject):
+    _xmin = None
+    _ymin = None
+    _xmax = None
+    _ymax = None
+    
     def __init__(self,x=0,y=0,w=100,h=100,fill="#f0f0f0",**kwargs):
         self.x = x
         self.y = y

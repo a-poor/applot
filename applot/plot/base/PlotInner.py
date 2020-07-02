@@ -5,6 +5,11 @@ from .PlotObject import PlotObject
 class PlotInner(PlotObject):
     plot_type = None
 
+    _xmin = None
+    _ymin = None
+    _xmax = None
+    _ymax = None
+
     def __init__(self,xrange,yrange,xdata,ydata,xscale,yscale):
         self.xmin, self.xmax = xrange
         self.ymin, self.ymax = yrange

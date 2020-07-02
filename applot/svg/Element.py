@@ -55,19 +55,35 @@ class Element:
             if self.rotate != self._rotate:
                 transform.append(f"rotate{self.rotate}")
             if transform:
-                self.attributes['transform'] = " ".join(transform)
-                
+                self.attributes['transform'] = " ".join(transform)       
         # Create attribute string
         sattr = " ".join(
             f'{k}="{v}"' for k,v in 
             self.attributes.items()
         )
-            
         # Render string of children
-        schildren = "".join(str(c) for c in self.children)
-        
+        schildren = self._schildren()
         # Format and return
         return f"<{self.name} {sattr}>{schildren}</{self.name}>"
+
+    def _schildren(self):
+        return "".join(str(c) for c in self.children)
+
+    def __add__(self,other):
+        pass
+
+    def __radd__(self,other):
+        pass
+
+    def copy(self): 
+        minime = self.__class__(
+            children=[
+                (c.copy() if hasattr(c,'copy') else c) 
+                for c in self.children
+                ],
+            attributes={**self.attributes}
+        )
+        return minime
     
     def render(self):
         return self.__str__()
