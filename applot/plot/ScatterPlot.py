@@ -51,23 +51,13 @@ class ScatterPlot(base.PlotBase):
                 self.n_yticks
                 )
 
-        xmin, xmax = self.xrange
-        self.xscale = util.make_scale(
-            xmin,
-            xmax
-        )
+        # xmin, xmax = self.xrange
+        # self.xscale = util.make_scale(
+        #     xmin,
+        #     xmax
+        # )
         
 
-        # base.PlotInner._layout
-
-        # xscale
-        # yscale
-
-        # xticks
-        # yticks
-
-        # if "nticks" in kwargs:
-        #     self.nticks = kwargs
 
 
         if radius in kwargs:
