@@ -18,4 +18,11 @@ def extent(iterable):
             hi = v
     return lo, hi
 
+def arange(start,stop=None,step=1):
+    if stop is None:
+        start, stop = 0, start
+    return list(range(start,stop,step))
 
+def linspace(start,stop=None,n=10):
+    step = (stop - start) / (n - 1)
+    return [start+step*i for i in range(n)]

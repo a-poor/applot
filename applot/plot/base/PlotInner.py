@@ -5,18 +5,27 @@ from .PlotObject import PlotObject
 class PlotInner(PlotObject):
     plot_type = None
 
-    _xmin = None
-    _ymin = None
-    _xmax = None
-    _ymax = None
+    _pxmin = None
+    _pymin = None
+    _pxmax = None
+    _pymax = None
 
-    def __init__(self,xrange,yrange,xdata,ydata,xscale,yscale):
-        self.xmin, self.xmax = xrange
-        self.ymin, self.ymax = yrange
+    _ppad = 1
+
+    def __init__(self,dxmin,dxmax,dymin,dymax,xdata,ydata):
         self.xdata = xdata
         self.ydata = ydata
-        self.xscale = xscale
-        self.yscale = yscale
+
+        self.dxmin = xmin 
+        self.xmax = xmax
+        self.ymin = ymin 
+        self.ymax = ymax
+        self.computescale()
+
+    def computescale(self):
+
+        self.xscale = None
+        self.yscale = None
 
     def __repr__(self):
         return f"<{self.plot_type} />"
