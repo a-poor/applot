@@ -4,6 +4,8 @@ from .PlotTitle import PlotTitle
 from .PlotAxis import PlotAxis
 from .PlotInner import PlotInner
 from .PlotObject import PlotObject
+from .PlotGrid import PlotGrid
+from .PlotBg import PlotBg
 
 class PlotBase(PlotObject):
     plot_name  = "PlotBase"
@@ -42,19 +44,18 @@ class PlotBase(PlotObject):
     # Arguments should be corresponding PlotObjects or svgs
     # def __init__(self,title=None,axis=None,inner=None,grid=None,bg=None):
     
-    def __init__(self,x,y,color="black",xticks=None,yticks=None,**kwargs):
+    def __init__(self,x,y,color="black",xticks=None,yticks=None,title=None,subtitle=None,caption=None,**kwargs):
         assert len(x) == len(y)
         self.x = x
         self.y = y
-        self.data_len = len(x)
-        self.color = (
-            [color for _ in range(len(x))] 
-            if len(color) != len(x) else color
-            )
+        self.color = color if len(color) == len(x) else [color for _ in x]
         
         self.xticks = xticks
         self.yticks = yticks
 
+        self.title = title
+        self.subtitle = subtitle
+        self.caption = caption
 
         for k,v in kwargs.items():
             setattr(self,k,v)
@@ -65,11 +66,11 @@ class PlotBase(PlotObject):
         return f"<applot.{self.plot_name}>"
 
     def setPlotObjects(self):
-        self._title = None
-        self._axis = None
+        self._title = PlotTitle(self.title)
+        self._axis = PlotAxis() #(self.xticks,self.yticks)
         self._inner = None
-        self._grid = None
-        self._bg = None
+        self._grid = PlotGrid()
+        self._bg = PlotBg()
 
     def toSvg(self):
         canv = svg.SVG(

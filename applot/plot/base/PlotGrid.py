@@ -2,6 +2,6 @@
 from ... import util, svg
 from .PlotObject import PlotObject
 
-class PlotBg(PlotObject):
+class PlotGrid(PlotObject):
     pass
 
