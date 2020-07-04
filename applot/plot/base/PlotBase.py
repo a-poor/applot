@@ -6,6 +6,8 @@ from .PlotInner import PlotInner
 from .PlotObject import PlotObject
 
 class PlotBase(PlotObject):
+    plot_name  = "PlotBase"
+
     # Default w & h
     _width = 600
     _height = 400
@@ -18,6 +20,19 @@ class PlotBase(PlotObject):
     _tick_pad = 10
     _ax_pad = 1
 
+    # Title
+    _title_x = 15
+    _title_y = 40
+    _title_font_size = 28
+    # Subtitle
+    _subtitle_x = 15
+    _subtitle_y = 70
+    _subtitle_font_size = 18
+    # Caption
+    _caption_x = 15
+    _caption_y = 385
+    _caption_font_size = 10
+
     # Default n axis ticks
     _n_xticks = 5
     _n_yticks = 5
@@ -25,14 +40,36 @@ class PlotBase(PlotObject):
     
 
     # Arguments should be corresponding PlotObjects or svgs
-    def __init__(self,title=None,axis=None,inner=None,grid=None,bg=None):
-        self._title = title
-        self._axis = axis
-        self._inner = inner
-        self._grid = grid
-        self._bg = bg
-        # self.width = self._width
-        # self.height = self._height
+    # def __init__(self,title=None,axis=None,inner=None,grid=None,bg=None):
+    
+    def __init__(self,x,y,color="black",xticks=None,yticks=None,**kwargs):
+        assert len(x) == len(y)
+        self.x = x
+        self.y = y
+        self.data_len = len(x)
+        self.color = (
+            [color for _ in range(len(x))] 
+            if len(color) != len(x) else color
+            )
+        
+        self.xticks = xticks
+        self.yticks = yticks
+
+
+        for k,v in kwargs.items():
+            setattr(self,k,v)
+
+        self.setPlotObjects()
+
+    def __repr__(self):
+        return f"<applot.{self.plot_name}>"
+
+    def setPlotObjects(self):
+        self._title = None
+        self._axis = None
+        self._inner = None
+        self._grid = None
+        self._bg = None
 
     def toSvg(self):
         canv = svg.SVG(
