@@ -18,10 +18,24 @@ def extent(iterable):
             hi = v
     return lo, hi
 
-def arange(start,stop=None,step=1):
+def arange(start,stop=None,step=1,clean=True):
+    if step == 0: 
+        raise ValueError("Can't have step of 0")
     if stop is None:
         start, stop = 0, start
-    return list(range(start,stop,step))
+    up = start < stop
+    if up and step < 0:
+        raise ValueError("Can't have negative step and start < stop.")
+    if up and step < 0:
+        raise ValueError("Can't have positive step and start > stop.")
+    arr = []
+    n = start
+    while (n < stop and up) or (n > stop and not up):
+        if clean: n = round(n,12)
+        arr.append(n)
+        n += step
+    return arr 
+    
 
 def linspace(start,stop=None,n=10):
     step = (stop - start) / (n - 1)

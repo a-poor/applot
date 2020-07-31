@@ -26,3 +26,15 @@ class TestExtent:
         arr = []
         assert util.extent(arr) == (None,None)
 
+class TestArange:
+    def test_arange_1(self):
+        assert util.arange(5) == [0,1,2,3,4]
+
+    def test_arange_2(self):
+        assert util.arange(4,-1,-1) == [0,1,2,3,4][::-1]
+
+    def test_arange_3(self):
+        assert util.arange(0,10,2) == [0,2,4,6,8]
+
+    def test_arange_4(self):
+        assert util.arange(0,1,0.2) == [0.0,0.2,0.4,0.6,0.8]
