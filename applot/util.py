@@ -12,9 +12,9 @@ def extent(iterable):
     for v in iterable:
         if lo is None and hi is None:
             lo = hi = v
-        elif lo < v:
+        elif v < lo:
             lo = v
-        elif hi > v:
+        elif v > hi:
             hi = v
     return lo, hi
 
