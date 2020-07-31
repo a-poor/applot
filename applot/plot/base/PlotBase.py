@@ -1,6 +1,28 @@
 
 from ... import svg
 from .PlotObject import PlotObject
+from .PlotGrid import PlotGrid
+from .PlotBg import PlotBg
+
+"""
+# Title
+_title_x = 15
+_title_y = 40
+_title_font_size = 28
+# Subtitle
+_subtitle_x = 15
+_subtitle_y = 70
+_subtitle_font_size = 18
+# Caption
+_caption_x = 15
+_caption_y = 385
+_caption_font_size = 10
+
+# Default n axis ticks
+_n_xticks = 5
+_n_yticks = 5
+
+"""
 
 class PlotBase:
     _default_positions = {
