@@ -97,3 +97,4 @@ class Element:
         i = self.children.index(c)
         self.children.pop(i)
         return self
+        

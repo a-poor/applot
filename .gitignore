@@ -5,3 +5,5 @@ build
 test
 dist
 *.egg-info
+.pytest_cache
+sandbox.ipynb
