@@ -1,2 +1,2 @@
 pytest
-applot=="0.1.0"
+applot==0.1.0
