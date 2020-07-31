@@ -20,4 +20,6 @@ setuptools.setup(
         "Development Status :: 1 - Planning"
     ],
     python_requires='>=3.6',
+    tests_require=['pytest'],
+    setup_requires=['pytest-runner'],
 )

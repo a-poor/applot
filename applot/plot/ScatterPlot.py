@@ -4,6 +4,9 @@ from .. import svg, util
 from .colors import colors
 
 class ScatterPlot(base.PlotBase):
+    plot_name  = "PlotBase"
+
+    
     def __init__(self,x,y,color='black',radius=1,title=None,**kwargs):
         self.x = x
         self.y = y
