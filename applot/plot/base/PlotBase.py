@@ -2,7 +2,7 @@
 from ... import svg
 from .PlotObject import PlotObject
 from .PlotGrid import PlotGrid
-from .PlotBg import PlotBg
+# from .PlotBg import PlotBg
 
 """
 # Title
