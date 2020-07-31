@@ -6,6 +6,9 @@
 [![GitHub license](https://img.shields.io/github/license/a-poor/applot)](https://github.com/a-poor/applot/blob/master/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/applot)](https://pypi.org/project/applot/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/applot)](https://pypi.org/project/applot/)
+[![codecov](https://codecov.io/gh/a-poor/applot/branch/master/graph/badge.svg)](https://codecov.io/gh/a-poor/applot)
+
+
 
 _A small SVG plotting library written from scratch in Python._
 
