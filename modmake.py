@@ -21,7 +21,8 @@ CLEAN_FILES = [
     "build/*",
     "*.egg-info",
     "__pycache__",
-    ".ipynb_checkpoints"
+    ".ipynb_checkpoints",
+    ".pytest_cache"
 ]
 
 BUILD_CMD = "python setup.py sdist bdist_wheel"
