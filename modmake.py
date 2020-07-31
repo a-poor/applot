@@ -68,7 +68,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 if 'all' in args.cmd:
-    all()
+    run_all()
 else:
     for cmd in args.cmd:
         fn = FUNCTIONS.get(cmd,None)
