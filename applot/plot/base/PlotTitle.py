@@ -25,6 +25,7 @@ class PlotTitle(PlotObject):
                 y=self.pos['y2'],
                 text=self.title,
                 a={**self.style}
-            )
+            ),
+            self._getbg()
         ])
 
