@@ -9,3 +9,12 @@ from .SqAreaPlot import SqAreaPlot
 from .StackedHBarPlot import StackedHBarPlot
 from .StackedVBarPlot import StackedVBarPlot
 from .VBarPlot import VBarPlot
+
+
+####### Make functions for plotting ########
+
+def _plot(x,y,):
+    return
+
+def scatter(x,y,color,size):
+    pass
