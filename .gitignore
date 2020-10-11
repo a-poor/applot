@@ -10,4 +10,6 @@ dist
 sandbox.ipynb
 .env
 .vscode
-docs/_build
+docs/_buildbuild-and-push.sh
+build-and-push.sh
+docs/_build/

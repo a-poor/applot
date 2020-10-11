@@ -1,3 +1,5 @@
+from .. import svg, util
+
 
 from . import base
 
@@ -13,8 +15,28 @@ from .VBarPlot import VBarPlot
 
 ####### Make functions for plotting ########
 
-def _plot(x,y,):
-    return
+# def _plot(x,y,):
+#     return
 
-def scatter(x,y,color,size):
-    pass
+# def scatter(x,y,color,size):
+#     pass
+
+def scatter(x,y):
+    width = 600
+    height = 400
+    margin = {
+        "top": 50,
+        "bottom": 50,
+        "left": 50,
+        "right": 50
+    }
+    xscale = util.make_scale(
+        *util.extent(x),
+        margin["left"],
+        width-margin["left"]
+        )
+    yscale = util.make_scale(
+        *util.extent(x),
+        margin["left"],
+        width-margin["left"]
+        )
